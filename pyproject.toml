@@ -1,7 +1,7 @@
 [project]
-name = "python-project-template"
+name = "ca-slack-block-kit"
 version = "0.1.0"
-description = "Add your description here"
+description = "A collection of simple, pre-configured Slack block kit components to use with Slack notification messages."
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = []
@@ -18,7 +18,7 @@ requires = ["uv_build"]
 build-backend = "uv_build"
 
 [tool.uv.build-backend]
-module-name = "python_project_template"
+module-name = "ca_slack_block_kit"
 module-root = "."
 
 [tool.uv]
@@ -49,11 +49,12 @@ select = [
 ignore = [
     "E501", # line-too-long
     "T201", # print
+    "S101", # use of assert detected
 ]
 
 [tool.ruff.lint.isort]
 combine-as-imports = true
 
 [tool.ty.environment]
-root = ["python_project_template"]
+root = ["ca_slack_block_kit"]
 python = "./.venv"
