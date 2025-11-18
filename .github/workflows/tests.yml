@@ -32,3 +32,13 @@ jobs:
       - uses: extractions/setup-just@v3
       - run: just generate-docs
       - run: git diff --exit-code docs.md || (echo "Documentation is out of date. Please run 'just generate-docs' and commit the changes." && exit 1)
+
+  tests-successful:
+    name: All Checks Passed
+    runs-on: ubuntu-latest
+    if: always()
+    needs: [lint, test, docs-update]
+    steps:
+      - uses: re-actors/alls-green@v1.2.2
+        with:
+          jobs: ${{ toJSON(needs) }}
