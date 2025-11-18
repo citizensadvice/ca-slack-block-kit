@@ -30,7 +30,7 @@ required by the Slack API.
 def render_blocks(blocks: list["Block"]) -> list[dict]
 ```
 
-Render a list of Block objects into a list of dictionaries.
+Render a list of Block objects into a list of dictionaries compatible with the Slack SDK client chat_postMessage function.
 
 **Arguments**:
 
