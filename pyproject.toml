@@ -1,6 +1,6 @@
 [project]
 name = "ca-slack-block-kit"
-version = "0.1.0"
+version = "1.0.0"
 description = "A collection of simple, pre-configured Slack block kit components to use with Slack notification messages."
 readme = "README.md"
 requires-python = ">=3.10"
