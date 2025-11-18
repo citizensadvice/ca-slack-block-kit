@@ -8,6 +8,7 @@ dependencies = []
 
 [dependency-groups]
 dev = [
+    "pydoc-markdown>=4.8.2",
     "pytest>=8.4.2",
     "python-dotenv>=1.2.1",
     "ruff>=0.13.0",

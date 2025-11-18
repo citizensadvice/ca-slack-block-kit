@@ -49,3 +49,11 @@ _push_version:
 _create_draft_release:
     gh release create $(uv version --short)--draft --generate-notes
     echo "> Follow the link to review and publish the release"
+
+# Regenerate documentation
+[group("Docs")]
+generate-docs:
+    uv run pydoc-markdown \
+    --render-toc \
+    --module ca_slack_block_kit \
+    --search-path $(pwd) > docs.md

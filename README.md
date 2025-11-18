@@ -35,3 +35,7 @@ client.chat_postMessage(
     blocks=render_blocks(message),
 )
 ```
+
+## Available Blocks
+
+See the [full documentation](docs.md) for a list of available blocks and their usage.

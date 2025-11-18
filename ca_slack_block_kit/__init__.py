@@ -13,7 +13,7 @@ from dataclasses import dataclass
 
 
 def render_blocks(blocks: list["Block"]) -> list[dict]:
-    """Render a list of Block objects into a list of dictionaries.
+    """Render a list of Block objects into a list of dictionaries compatible with the Slack SDK client chat_postMessage function.
 
     Args:
         blocks (list[Block]): List of Block objects to render.
@@ -44,9 +44,10 @@ class Divider(Block):
 
 @dataclass
 class Header(Block):
-    """Header block.
+    """Header block. Plain text with emoji support enabled.
 
-    Plain text with emoji support enabled.
+    Args:
+        text: The header text.
     """
 
     text: str
@@ -66,7 +67,7 @@ class Header(Block):
 class MarkdownSection(Block):
     """Markdown section block with a single piece of text.
 
-    args:
+    Args:
         text: The markdown formatted text for the section.
     """
 
@@ -83,7 +84,7 @@ class MarkdownSection(Block):
 class MarkdownSectionFields(Block):
     """Markdown section block with multiple fields.
 
-    args:
+    Args:
         fields: A list of markdown formatted text strings for the fields.
     """
 
@@ -100,7 +101,7 @@ class MarkdownSectionFields(Block):
 class CodeBlock(Block):
     """Code block section.
 
-    args:
+    Args:
         code: The code string to display in the block.
     """
 
