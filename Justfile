@@ -37,7 +37,6 @@ _bump_version bump:
     git checkout main
     git pull origin main
     git reset # Unstage all files
-    @just build
     uv version --bump {{ bump }}
     git add pyproject.toml uv.lock
 
@@ -47,8 +46,8 @@ _push_version:
     git push origin main
 
 _create_draft_release:
-    gh release create $(uv version --short)--draft --generate-notes
-    echo "> Follow the link to review and publish the release"
+    gh release create $(uv version --short) --draft --generate-notes
+    @echo "> Follow the link to review and publish the release"
 
 # Regenerate documentation
 [group("Docs")]
