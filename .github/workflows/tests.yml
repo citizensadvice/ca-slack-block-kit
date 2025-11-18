@@ -22,3 +22,13 @@ jobs:
       - uses: citizensadvice/python-uv-setup-action@v1
       - uses: extractions/setup-just@v3
       - run: just all-tests
+
+  docs-update:
+    name: Ensure documentation is up to date
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: citizensadvice/python-uv-setup-action@v1
+      - uses: extractions/setup-just@v3
+      - run: just generate-docs
+      - run: git diff --exit-code docs.md || (echo "Documentation is out of date. Please run 'just generate-docs' and commit the changes." && exit 1)
