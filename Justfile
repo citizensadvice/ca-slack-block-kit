@@ -25,8 +25,17 @@ format *paths:
 
 # Run the test suite
 [group("Testing")]
-test:
-    uv run pytest tests
+unit-tests:
+    uv run pytest -v tests/unit_test.py
+
+[group("Testing")]
+integration-tests:
+    uv run pytest -v tests/integration_test.py
+
+# Run all tests
+[group("Testing")]
+all-tests:
+    uv run pytest -v tests/
 
 # Bump version, push and create draft release
 [confirm("Are you sure you want to draft a release? [y/N]")]

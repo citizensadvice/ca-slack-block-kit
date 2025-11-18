@@ -5,12 +5,40 @@ on: pull_request
 jobs:
   lint:
     name: Lint and typecheck Python code
-    runs-on:
-      - runs-on=${{ github.run_id }}
-      - job=lint
-      - extras=s3-cache
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
       - uses: citizensadvice/python-uv-setup-action@v1
       - uses: extractions/setup-just@v3
       - run: just lint
+
+  test:
+    name: Run Python tests
+    runs-on: ubuntu-latest
+    env:
+      SLACK_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: citizensadvice/python-uv-setup-action@v1
+      - uses: extractions/setup-just@v3
+      - run: just all-tests
+
+  docs-update:
+    name: Ensure documentation is up to date
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: citizensadvice/python-uv-setup-action@v1
+      - uses: extractions/setup-just@v3
+      - run: just generate-docs
+      - run: git diff --exit-code docs.md || (echo "Documentation is out of date. Please run 'just generate-docs' and commit the changes." && exit 1)
+
+  tests-successful:
+    name: All Checks Passed
+    runs-on: ubuntu-latest
+    if: always()
+    needs: [lint, test, docs-update]
+    steps:
+      - uses: re-actors/alls-green@v1.2.2
+        with:
+          jobs: ${{ toJSON(needs) }}
