@@ -4,8 +4,34 @@ A collection of simple, pre-configured Slack block kit components to use to cons
 
 ## Installation
 
-TODO
+This package is only available for installation via Git.
+
+### UV Project
+
+`uv add 'git+https://github.com/citizensadvice/ca-slack-block-kit'`
+
+### Poetry Project
+
+`poetry add 'git+https://github.com/citizensadvice/ca-slack-block-kit'`
 
 ## Usage
 
-TODO
+To form a Slack message, import the required components from the package and use them to build your message payload as a list of Block instances.
+
+```python
+from ca_slack_block_kit import Block, Divider, Header, MarkdownSection, render_blocks
+
+message: list[Block] = []
+
+message.append(Header(title="This is a header"))
+message.append(Divider())
+message.append(MarkdownSection(text="**This is a markdown section**"))
+
+# The message can then be sent using the Slack SDK
+client = slack_sdk.WebClient(token=slack_bot_token)
+client.chat_postMessage(
+    channel=<slack_channel_id>,
+    text=<title_text>,
+    blocks=render_blocks(message),
+)
+```

@@ -25,7 +25,10 @@ def render_blocks(blocks: list["Block"]) -> list[dict]:
 
 
 class Block(ABC):
-    """Base class for Slack message blocks."""
+    """Base class for Slack message blocks.
+
+    All block types should inherit from this class and implement the render method.
+    """
 
     @abstractmethod
     def render(self) -> dict:
@@ -33,7 +36,7 @@ class Block(ABC):
 
 
 class Divider(Block):
-    """Divider block for Slack messages."""
+    """Divider block."""
 
     def render(self) -> dict:
         return {"type": "divider"}
@@ -41,19 +44,19 @@ class Divider(Block):
 
 @dataclass
 class Header(Block):
-    """Header block for Slack messages.
+    """Header block.
 
     Plain text with emoji support enabled.
     """
 
-    title: str
+    text: str
 
     def render(self) -> dict:
         return {
             "type": "header",
             "text": {
                 "type": "plain_text",
-                "text": self.title,
+                "text": self.text,
                 "emoji": True,
             },
         }
@@ -61,9 +64,10 @@ class Header(Block):
 
 @dataclass
 class MarkdownSection(Block):
-    """Markdown section block for Slack messages.
+    """Markdown section block with a single piece of text.
 
-    Markdown formatted text.
+    args:
+        text: The markdown formatted text for the section.
     """
 
     text: str
@@ -72,4 +76,38 @@ class MarkdownSection(Block):
         return {
             "type": "section",
             "text": {"type": "mrkdwn", "text": self.text},
+        }
+
+
+@dataclass
+class MarkdownSectionFields(Block):
+    """Markdown section block with multiple fields.
+
+    args:
+        fields: A list of markdown formatted text strings for the fields.
+    """
+
+    fields: list[str]
+
+    def render(self) -> dict:
+        return {
+            "type": "section",
+            "fields": [{"type": "mrkdwn", "text": field} for field in self.fields],
+        }
+
+
+@dataclass
+class CodeBlock(Block):
+    """Code block section.
+
+    args:
+        code: The code string to display in the block.
+    """
+
+    code: str
+
+    def render(self) -> dict:
+        return {
+            "type": "section",
+            "text": {"type": "mrkdwn", "text": f"```{self.code}```"},
         }
