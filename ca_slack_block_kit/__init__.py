@@ -11,6 +11,10 @@ required by the Slack API.
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
 
+from .emoji import Emoji  # type: ignore[import]
+
+__all__ = ["Emoji"]
+
 
 def render_blocks(blocks: list["Block"]) -> list[dict]:
     """Render a list of Block objects into a list of dictionaries compatible with the Slack SDK client chat_postMessage function.
