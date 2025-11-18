@@ -5,10 +5,7 @@ on: pull_request
 jobs:
   lint:
     name: Lint and typecheck Python code
-    runs-on:
-      - runs-on=${{ github.run_id }}
-      - job=lint
-      - extras=s3-cache
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
       - uses: citizensadvice/python-uv-setup-action@v1
@@ -17,10 +14,7 @@ jobs:
 
   test:
     name: Run Python tests
-    runs-on:
-      - runs-on=${{ github.run_id }}
-      - job=test
-      - extras=s3-cache
+    runs-on: ubuntu-latest
     env:
       SLACK_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
     steps:
