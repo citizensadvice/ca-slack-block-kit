@@ -23,9 +23,9 @@ from ca_slack_block_kit import Block, Divider, Header, MarkdownSection, render_b
 
 message: list[Block] = []
 
-message.append(Header(title="This is a header"))
+message.append(Header("This is a header"))
 message.append(Divider())
-message.append(MarkdownSection(text="**This is a markdown section**"))
+message.append(MarkdownSection("**This is a markdown section**"))
 
 # The message can then be sent using the Slack SDK
 client = slack_sdk.WebClient(token=slack_bot_token)
