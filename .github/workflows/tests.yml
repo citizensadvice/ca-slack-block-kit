@@ -7,7 +7,7 @@ jobs:
     name: Lint and typecheck Python code
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: citizensadvice/python-uv-setup-action@v1
       - uses: extractions/setup-just@v3
       - run: just lint
@@ -18,7 +18,7 @@ jobs:
     env:
       SLACK_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: citizensadvice/python-uv-setup-action@v1
       - uses: extractions/setup-just@v3
       - run: just all-tests
@@ -27,7 +27,7 @@ jobs:
     name: Ensure documentation is up to date
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: citizensadvice/python-uv-setup-action@v1
       - uses: extractions/setup-just@v3
       - run: just generate-docs
