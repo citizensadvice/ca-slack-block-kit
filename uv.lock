@@ -34,7 +34,7 @@ wheels = [
 
 [[package]]
 name = "ca-slack-block-kit"
-version = "1.1.1"
+version = "1.1.2"
 source = { editable = "." }
 
 [package.dev-dependencies]
