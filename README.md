@@ -4,15 +4,19 @@ A collection of simple, pre-configured Slack block kit components to use to cons
 
 ## Installation
 
-This package is only available for installation via Git.
+This package is available for installation via PyPi:
 
 ### UV Project
 
-`uv add 'git+https://github.com/citizensadvice/ca-slack-block-kit'`
+`uv add ca-slack-block-kit`
 
 ### Poetry Project
 
-`poetry add 'git+https://github.com/citizensadvice/ca-slack-block-kit'`
+`poetry add ca-slack-block-kit`
+
+### Pip
+
+`pip install ca-slack-block-kit`
 
 ## Usage
 

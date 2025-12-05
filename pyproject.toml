@@ -8,6 +8,14 @@ authors = [{ name = "Matthew Cane", email = "matthew.cane@citizensadvice.org.uk"
 license = { file = "LICENSE" }
 dependencies = []
 
+[project.urls]
+Homepage = "https://github.com/citizensadvice/ca-slack-block-kit"
+Documentation = "https://github.com/citizensadvice/ca-slack-block-kit/blob/main/docs.md"
+Repository = "https://github.com/matthewcane/python-ntfy"
+Issues = "https://github.com/citizensadvice/ca-slack-block-kit/issues"
+Changelog = "https://github.com/citizensadvice/ca-slack-block-kit/releases"
+
+
 [dependency-groups]
 dev = [
     "pydoc-markdown>=4.8.2",
