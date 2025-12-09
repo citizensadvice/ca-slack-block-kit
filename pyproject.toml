@@ -11,7 +11,7 @@ dependencies = []
 [project.urls]
 Homepage = "https://github.com/citizensadvice/ca-slack-block-kit"
 Documentation = "https://github.com/citizensadvice/ca-slack-block-kit/blob/main/docs.md"
-Repository = "https://github.com/matthewcane/python-ntfy"
+Repository = "https://github.com/matthewcane/ca-slack-block-kit"
 Issues = "https://github.com/citizensadvice/ca-slack-block-kit/issues"
 Changelog = "https://github.com/citizensadvice/ca-slack-block-kit/releases"
 
