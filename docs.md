@@ -35,7 +35,7 @@ Render a list of Block objects into a list of dictionaries compatible with the S
 **Arguments**:
 
 - `blocks` _list[Block]_ - List of Block objects to render.
-  
+
 
 **Returns**:
 
@@ -122,4 +122,3 @@ Code block section.
 **Arguments**:
 
 - `code` - The code string to display in the block.
-
