@@ -23,6 +23,11 @@ format *paths:
     uv run ruff check --fix {{ paths }}
     just --fmt --unstable
 
+# Audit dependencies for security vulnerabilities
+[group("Security")]
+audit:
+    uv audit --frozen --preview-features audit
+
 # Run the test suite
 [group("Testing")]
 unit-tests:
