@@ -2,6 +2,7 @@ repos:
   # pre-commit-hooks checkers and fixers
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
+    exclude: ^docs\.md$
     hooks:
       - id: end-of-file-fixer
       - id: trailing-whitespace
