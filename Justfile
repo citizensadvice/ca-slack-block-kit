@@ -70,3 +70,4 @@ generate-docs:
     --render-toc \
     --module ca_slack_block_kit \
     --search-path $(pwd) > docs.md
+    uvx mdformat docs.md
