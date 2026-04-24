@@ -1,17 +1,18 @@
 # Table of Contents
 
-* [ca\_slack\_block\_kit](#ca_slack_block_kit)
-  * [render\_blocks](#ca_slack_block_kit.render_blocks)
-  * [Block](#ca_slack_block_kit.Block)
-  * [Divider](#ca_slack_block_kit.Divider)
-  * [Header](#ca_slack_block_kit.Header)
-  * [MarkdownSection](#ca_slack_block_kit.MarkdownSection)
-  * [MarkdownSectionFields](#ca_slack_block_kit.MarkdownSectionFields)
-  * [CodeBlock](#ca_slack_block_kit.CodeBlock)
+- [ca_slack_block_kit](#ca_slack_block_kit)
+  - [Emoji](#ca_slack_block_kit.Emoji)
+  - [render_blocks](#ca_slack_block_kit.render_blocks)
+  - [Block](#ca_slack_block_kit.Block)
+  - [Divider](#ca_slack_block_kit.Divider)
+  - [Header](#ca_slack_block_kit.Header)
+  - [MarkdownSection](#ca_slack_block_kit.MarkdownSection)
+  - [MarkdownSectionFields](#ca_slack_block_kit.MarkdownSectionFields)
+  - [CodeBlock](#ca_slack_block_kit.CodeBlock)
 
 <a id="ca_slack_block_kit"></a>
 
-# ca\_slack\_block\_kit
+# ca_slack_block_kit
 
 Slack message blocks for notifications and alerts.
 
@@ -22,9 +23,20 @@ by a class that implements the Block interface.
 By constructing a list of these blocks, we can then render them into the format
 required by the Slack API.
 
+<a id="ca_slack_block_kit.Emoji"></a>
+
+## Emoji Objects
+
+```python
+@dataclass(frozen=True)
+class Emoji()
+```
+
+Various emojis for easy use with Slack messages.
+
 <a id="ca_slack_block_kit.render_blocks"></a>
 
-#### render\_blocks
+#### render_blocks
 
 ```python
 def render_blocks(blocks: list["Block"]) -> list[dict]
@@ -35,7 +47,6 @@ Render a list of Block objects into a list of dictionaries compatible with the S
 **Arguments**:
 
 - `blocks` _list[Block]_ - List of Block objects to render.
-
 
 **Returns**:
 
