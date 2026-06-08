@@ -9,6 +9,7 @@ required by the Slack API.
 """
 
 from abc import ABC, abstractmethod
+from collections.abc import Sequence
 from dataclasses import dataclass
 
 
@@ -35,7 +36,7 @@ class Emoji:
     SPARKLES = ":sparkles:"
 
 
-def render_blocks(blocks: list["Block"]) -> list[dict]:
+def render_blocks(blocks: Sequence["Block"]) -> list[dict]:
     """Render a list of Block objects into a list of dictionaries compatible with the Slack SDK client chat_postMessage function.
 
     Args:
