@@ -39,7 +39,7 @@ Various emojis for easy use with Slack messages.
 #### render_blocks
 
 ```python
-def render_blocks(blocks: list["Block"]) -> list[dict]
+def render_blocks(blocks: Sequence["Block"]) -> list[dict]
 ```
 
 Render a list of Block objects into a list of dictionaries compatible with the Slack SDK client chat_postMessage function.
